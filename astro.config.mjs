@@ -53,6 +53,7 @@ export default defineConfig({
 		webAnalytics: { enabled: true },
 		isr: {
 			expiration: false
-		}
+		},
+		runtime: 'nodejs20.x' 
 	})
 })
