@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import { cn } from '@/utils'
+
+const {
+  title,          // e.g. "Microsoft Certified: Azure Developer Associate (AZ-204)"
+  issuer,         // e.g. "Microsoft"
+  credentialId,   // e.g. "Credential ID: Available on Microsoft portal"
+  date,           // e.g. "2024"
+  logoPath,       // optional logo image
+  logoAlt,
+  certUrl,        // optional credential URL
+  imageClass,
+  class: className,
+} = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,webp}')
+
+if (logoPath && !images[logoPath]) {
+  throw new Error(`"${logoPath}" does not exist in src/assets/*.{jpeg,jpg,png,gif,webp}`)
+}
+---
+
+<div
+  class={cn(
+    'relative flex flex-col rounded-2xl border border-border bg-primary-foreground px-5 py-4 shadow-sm transition-all hover:shadow-md hover:border-border/80',
+    className
+  )}
+>
+  <div class="flex flex-row items-center gap-x-4">
+    {logoPath && (
+      <div class="flex-shrink-0 flex items-center justify-center w-14 h-14 overflow-hidden">
+        {certUrl ? (
+          <a
+            href={certUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center w-full h-full"
+          >
+            <Image
+              src={images[logoPath]()}
+              alt={logoAlt ?? title}
+              class={cn('h-10 w-auto object-contain transition-transform duration-200 hover:scale-105', imageClass)}
+              loading="eager"
+            />
+          </a>
+        ) : (
+          <Image
+            src={images[logoPath]()}
+            alt={logoAlt ?? title}
+            class={cn('h-10 w-auto object-contain', imageClass)}
+            loading="eager"
+          />
+        )}
+      </div>
+    )}
+
+    <div class="flex flex-col">
+      <h1 class="text-base font-semibold text-foreground leading-snug">{title}</h1>
+      {issuer && <p class="text-sm text-muted-foreground">{issuer}</p>}
+      {credentialId && <p class="text-xs text-muted-foreground">{credentialId}</p>}
+      {date && <p class="text-xs text-muted-foreground mt-1">{date}</p>}
+    </div>
+  </div>
+</div>

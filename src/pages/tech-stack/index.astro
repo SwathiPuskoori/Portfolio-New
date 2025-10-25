@@ -1,0 +1,269 @@
+---
+import PageLayout from '@/layouts/BaseLayout.astro'
+import ToolSection from '@/components/TechSection.astro'
+import Button from '@/components/Button.astro'
+
+const PROGRAMMING = [
+	{
+		name: 'TypeScript',
+		description: 'Typed JavaScript for scalable apps',
+		href: 'https://www.typescriptlang.org/',
+		iconPath: 'logos:typescript-icon',
+		iconBgColour: '#3178C6'
+	},
+	{
+		name: 'JavaScript',
+		description: 'ES6+ web development language',
+		href: 'https://developer.mozilla.org/docs/Web/JavaScript',
+		iconPath: 'logos:javascript',
+		iconBgColour: '#F7DF1E'
+	},
+	{
+		name: 'Java',
+		description: 'Backend and microservices development',
+		href: 'https://www.java.com/',
+		iconPath: 'logos:java',
+		iconBgColour: '#ffffff'
+	},
+	{
+		name: 'Python',
+		description: 'Automation and scripting',
+		href: 'https://www.python.org/',
+		iconPath: 'logos:python',
+		iconBgColour: '#3776AB'
+	}
+]
+
+const FRONTEND = [
+	{
+		name: 'React',
+		description: 'SPA development with components',
+		href: 'https://react.dev/',
+		iconPath: 'logos:react',
+		iconBgColour: '#20232a'
+	},
+	{
+		name: 'Angular',
+		description: 'Enterprise UI framework',
+		href: 'https://angular.dev/',
+		iconPath: 'logos:angular-icon',
+		iconBgColour: '#DD0031'
+	},
+	{
+		name: 'HTML5',
+		description: 'Markup for web applications',
+		href: 'https://developer.mozilla.org/docs/Web/HTML',
+		iconPath: 'logos:html-5',
+		iconBgColour: '#E34F26'
+	},
+	{
+		name: 'CSS & SCSS',
+		description: 'Styling and responsive layouts',
+		href: 'https://sass-lang.com/',
+		iconPath: 'logos:sass',
+		iconBgColour: '#CC6699'
+	},
+	{
+		name: 'Bootstrap',
+		description: 'Component styling system',
+		href: 'https://getbootstrap.com/',
+		iconPath: 'logos:bootstrap',
+		iconBgColour: '#563D7C'
+	},
+	// {
+	// 	name: 'Form.io',
+	// 	description: 'Forms & workflow automation',
+	// 	href: 'https://form.io/',
+	// 	iconPath: 'simple-icons:formio',
+	// 	iconBgColour: '#0A6ACE'
+	// }
+]
+
+const BACKEND = [
+	{
+		name: 'Node.js',
+		description: 'Server-side JavaScript runtime',
+		href: 'https://nodejs.org/',
+		iconPath: 'logos:nodejs-icon',
+		iconBgColour: '#3C873A'
+	},
+	{
+		name: 'Express.js',
+		description: 'Lightweight API framework',
+		href: 'https://expressjs.com/',
+		iconPath: 'simple-icons:express',
+		iconBgColour: '#000000'
+	},
+	{
+		name: '.NET (C#)',
+		description: 'Backend & web applications',
+		href: 'https://dotnet.microsoft.com/',
+		iconPath: 'logos:dotnet',
+		iconBgColour: '#512BD4'
+	},
+	{
+		name: 'Entity Framework',
+		description: 'ORM for .NET applications',
+		href: 'https://learn.microsoft.com/ef/',
+		iconPath: 'mdi:database',
+		iconBgColour: '#4F2EBB'
+	},
+	{
+		name: 'Spring Boot',
+		description: 'Java microservices framework',
+		href: 'https://spring.io/projects/spring-boot',
+		iconPath: 'logos:spring-icon',
+		iconBgColour: '#6DB33F'
+	},
+	{
+		name: 'PostgreSQL',
+		description: 'Relational database',
+		href: 'https://www.postgresql.org/',
+		iconPath: 'logos:postgresql',
+		iconBgColour: '#4169E1'
+	},
+	// {
+	// 	name: 'MS SQL Server',
+	// 	description: 'Enterprise database system',
+	// 	href: 'https://learn.microsoft.com/sql/',
+	// 	iconPath: 'logos:microsoft-sql-server',
+	// 	iconBgColour: '#A91D22'
+	// },
+	{
+		name: 'MongoDB',
+		description: 'NoSQL document DB',
+		href: 'https://mongodb.com',
+		iconPath: 'logos:mongodb-icon',
+		iconBgColour: '#13AA52'
+	},
+	{
+		name: 'REST APIs',
+		description: 'Client-server communication',
+		href: 'https://restfulapi.net/',
+		iconPath: 'carbon:api',
+		iconBgColour: '#000000'
+	}
+]
+
+const CLOUD_DEVOPS = [
+	{
+		name: 'Azure',
+		description: 'Functions, App Service, Key Vault, etc.',
+		href: 'https://azure.microsoft.com/',
+		iconPath: 'logos:microsoft-azure',
+		iconBgColour: '#0078D4'
+	},
+	// {
+	// 	name: 'Azure DevOps',
+	// 	description: 'CI/CD pipelines & automation',
+	// 	href: 'https://azure.microsoft.com/products/devops',
+	// 	iconPath: 'logos:azure-devops',
+	// 	iconBgColour: '#0078D4'
+	// },
+	{
+		name: 'Docker',
+		description: 'Containerization & delivery',
+		href: 'https://docker.com',
+		iconPath: 'logos:docker-icon',
+		iconBgColour: '#2496ED'
+	},
+	{
+		name: 'Jenkins',
+		description: 'CI automation system',
+		href: 'https://www.jenkins.io/',
+		iconPath: 'logos:jenkins',
+		iconBgColour: '#D33833'
+	},
+	{
+		name: 'Git',
+		description: 'Version control',
+		href: 'https://git-scm.com/',
+		iconPath: 'logos:git-icon',
+		iconBgColour: '#F05032'
+	},
+	{
+		name: 'KQL',
+		description: 'Monitor insights query language',
+		href: 'https://learn.microsoft.com/azure/azure-monitor/kusto-query-language/',
+		iconPath: 'mdi:magnify-scan',
+		iconBgColour: '#0078D4'
+	}
+]
+
+const TOOLS_CERTS = [
+	{
+		name: 'Auth0',
+		description: 'Identity & access management',
+		href: 'https://auth0.com/',
+		iconPath: 'logos:auth0',
+		iconBgColour: '#EB5424'
+	},
+	// {
+	// 	name: 'Power Apps',
+	// 	description: 'Low-code business apps',
+	// 	href: 'https://powerapps.microsoft.com/',
+	// 	iconPath: 'logos:microsoft-powerapps',
+	// 	iconBgColour: '#742774'
+	// },
+	{
+		name: 'SAML SSO',
+		description: 'Secure authentication',
+		href: 'https://en.wikipedia.org/wiki/SAML_2.0',
+		iconPath: 'mdi:shield-account',
+		iconBgColour: '#1E293B'
+	},
+	{
+		name: 'Postman',
+		description: 'API testing',
+		href: 'https://postman.com',
+		iconPath: 'logos:postman',
+		iconBgColour: '#FF6C37'
+	},
+	{
+		name: 'AZ-204 Certified',
+		description: 'Azure Developer Associate',
+		href: 'https://learn.microsoft.com/certifications/azure-developer',
+		iconPath: 'mdi:certificate',
+		iconBgColour: '#0078D4'
+	},
+	{
+		name: 'AZ-104 Certified',
+		description: 'Azure Administrator Associate',
+		href: 'https://learn.microsoft.com/certifications/azure-administrator/',
+		iconPath: 'mdi:certificate-outline',
+		iconBgColour: '#0078D4'
+	}
+]
+---
+
+<PageLayout meta={{ title: 'Skills' }}>
+	<div class='w-full'>
+		<Button title='Back' href='/' style='button'>
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				width='14'
+				height='14'
+				viewBox='0 0 24 24'
+				slot='icon-before'
+			>
+				<path
+					fill='currentColor'
+					d='m6.921 12.5l5.792 5.792L12 19l-7-7l7-7l.713.708L6.921 11.5H19v1z'
+				></path>
+			</svg>
+		</Button>
+
+		<div class='mt-5 flex w-full flex-col gap-y-10'>
+			<div>
+				<h1 class='mb-1 text-2xl font-bold'>Skills & Tools</h1>
+				<p>Technologies I use professionally</p>
+			</div>
+
+			<ToolSection title='Programming Languages' tools={PROGRAMMING} />
+			<ToolSection title='Frontend Engineering' tools={FRONTEND} />
+			<ToolSection title='Backend Engineering' tools={BACKEND} />
+			<ToolSection title='Cloud & DevOps' tools={CLOUD_DEVOPS} />
+			<ToolSection title='Tools & Certifications' tools={TOOLS_CERTS} />
+		</div>
+	</div>
+</PageLayout>

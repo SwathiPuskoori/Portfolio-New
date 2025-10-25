@@ -1,0 +1,67 @@
+---
+
+---
+
+<footer class="mx-auto mt-24 w-full">
+	<div class="border-t border-border pt-5">
+		<div
+			class="flex flex-col items-center gap-y-4 sm:flex-row sm:justify-between sm:items-center"
+		>
+			<!-- Copyright + Clock -->
+			<div class="text-center sm:text-left text-sm leading-snug space-y-1">
+				<p class="flex flex-col sm:flex-row sm:items-center sm:gap-x-2">
+					<span class="opacity-80"
+						>© <span id="year"></span> •
+						<span id="date"></span> •
+						<span id="time"></span></span
+					>
+					<span class="opacity-80">— Swathi Puskoori</span>
+				</p>
+				<p class="text-xs text-muted-foreground">All rights reserved.</p>
+			</div>
+
+			<!-- Social Icons -->
+			<div class="flex items-center gap-x-4">
+				<a
+					class="text-muted-foreground transition-all hover:text-muted-foreground/75"
+					href="https://www.linkedin.com/in/swathi-puskoori/"
+					target="_blank"
+				>
+					<svg
+						class="h-5 w-5"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 16 16"
+					>
+						<path
+							fill="currentColor"
+							d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+						></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="module">
+		const updateFooterTime = () => {
+			const now = new Date()
+
+			document.getElementById("year").textContent = now.getFullYear()
+
+			document.getElementById("date").textContent = now.toLocaleDateString("en-US", {
+				month: "short",
+				day: "2-digit",
+				year: "numeric",
+			})
+
+			document.getElementById("time").textContent = now.toLocaleTimeString("en-US", {
+				hour: "2-digit",
+				minute: "2-digit",
+				second: "2-digit",
+			})
+		}
+
+		updateFooterTime()
+		setInterval(updateFooterTime, 1000)
+	</script>
+</footer>
