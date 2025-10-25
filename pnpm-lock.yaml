@@ -136,9 +136,6 @@ packages:
   '@astrojs/internal-helpers@0.4.1':
     resolution: {integrity: sha512-bMf9jFihO8YP940uD70SI/RDzIhUHJAolWVcO1v5PUivxGKvfLZTLTVVxEYzGYyPsA3ivdLNqMnL5VgmQySa+g==}
 
-  '@astrojs/internal-helpers@0.4.2':
-    resolution: {integrity: sha512-EdDWkC3JJVcpGpqJAU/5hSk2LKXyG3mNGkzGoAuyK+xoPHbaVdSuIWoN1QTnmK3N/gGfaaAfM8gO2KDCAW7S3w==}
-
   '@astrojs/language-server@2.15.5':
     resolution: {integrity: sha512-GizawjrIytYEOv8c/VUDrzGYo5t584w6S0fUAmVK2u11BtAZcbtXWNjGtwFWYLyR27J9pZe4Ipe/qP8mXUfCWQ==}
     hasBin: true
@@ -3845,8 +3842,6 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.1': {}
 
-  '@astrojs/internal-helpers@0.4.2': {}
-
   '@astrojs/language-server@2.15.5(prettier-plugin-astro@0.13.0)(prettier@3.6.2)(typescript@5.9.3)':
     dependencies:
       '@astrojs/compiler': 2.13.0
@@ -3983,7 +3978,7 @@ snapshots:
 
   '@astrojs/vercel@7.8.2(astro@4.16.19(@types/node@24.9.1)(rollup@4.52.5)(typescript@5.9.3))(rollup@4.52.5)':
     dependencies:
-      '@astrojs/internal-helpers': 0.4.2
+      '@astrojs/internal-helpers': 0.4.1
       '@vercel/analytics': 1.5.0
       '@vercel/edge': 1.2.2
       '@vercel/nft': 0.27.10(rollup@4.52.5)
