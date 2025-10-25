@@ -8,7 +8,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 import expressiveCode from 'astro-expressive-code'
 import { expressiveCodeOptions } from './src/site.config'
 import icon from 'astro-icon'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 
 export default defineConfig({
 	site: 'https://portfolio-new-itp2-git-main-swathipuskooris-projects.vercel.app',
