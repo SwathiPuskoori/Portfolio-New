@@ -9,11 +9,10 @@ import expressiveCode from 'astro-expressive-code'
 import { expressiveCodeOptions } from './src/site.config'
 import icon from 'astro-icon'
 
-// ✅ Use the Edge adapter instead of Serverless
-import vercel from '@astrojs/vercel/edge'
+import vercel from '@astrojs/vercel/serverless'
 
 export default defineConfig({
-	site: 'https://example.me',
+	site: 'https://portfolio-new-itp2-git-main-swathipuskooris-projects.vercel.app',
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		tailwind({
