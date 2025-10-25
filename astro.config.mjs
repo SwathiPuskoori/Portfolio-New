@@ -9,7 +9,8 @@ import expressiveCode from 'astro-expressive-code'
 import { expressiveCodeOptions } from './src/site.config'
 import icon from 'astro-icon'
 
-import vercel from '@astrojs/vercel/serverless'
+// ✅ Use the Edge adapter instead of Serverless
+import vercel from '@astrojs/vercel/edge'
 
 export default defineConfig({
 	site: 'https://example.me',
@@ -21,7 +22,7 @@ export default defineConfig({
 		sitemap(),
 		mdx(),
 		icon({
-			iconDir: 'src/icons', // ✅ Keep local icons
+			iconDir: 'src/icons',
 			collections: {
 				logos: () => import('@iconify-json/logos/icons.json'),
 				'simple-icons': () => import('@iconify-json/simple-icons/icons.json'),
@@ -38,7 +39,7 @@ export default defineConfig({
 				rehypeExternalLinks,
 				{
 					target: '_blank',
-					rel: ['nofollow, noopener, noreferrer']
+					rel: ['nofollow', 'noopener', 'noreferrer']
 				}
 			]
 		],
